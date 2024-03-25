@@ -175,16 +175,6 @@ class Player(Spaceship):
 #             saport_lasers.add(
 #                 Laser(self.rect.right , self.rect.top, BLUE, 6)
 #                     )
-
-
-
-
-
-
-
-
-
-
     #обычный враг
 class Enemy(Spaceship):
 
@@ -229,7 +219,6 @@ class Elit_Enemy(Enemy):
             self.kill()
             # explosion.add(Explosion(*self.rect.center))
 
-
         collided_laser = pygame.sprite.spritecollideany(self , player_lasers)
         if collided_laser:
             collided_laser.kill()
@@ -245,7 +234,6 @@ class Elit_Enemy(Enemy):
             enemis_lasers.add(
                 Laser(self.rect.right , self.rect.bottom, VIOLET, 6)
                     )
-
 
 # class Boss(Spaceship):
 #     def __init__(self, x, y, img, speed=5, shoot_cd=TICKRATE , hp = 2000):
@@ -277,8 +265,6 @@ class Elit_Enemy(Enemy):
 #                 Laser(self.rect.right , self.rect.bottom, CYANTH, 6)
                     # )    
 
-
-
 class Laser(pygame.sprite.Sprite):
     def __init__(self , x , y , color , speed):
         super().__init__()
@@ -308,9 +294,6 @@ class Explosion(pygame.sprite.Sprite):
         sound = pygame.mixer.Sound('music/explosion_music.wav')
         sound.set_volume(0.1)
         sound.play()
-
-
-
 
     def update(self):
         if self.frame_cd.done():
@@ -349,8 +332,6 @@ saport_spawn_cd = Cooldown(TICKRATE)
 
 boss = pygame.sprite.Group()
 
-
-
 elit_enemy = pygame.sprite.Group()
 elit_enemy_spawn_cd = Cooldown(TICKRATE)
 
@@ -384,9 +365,6 @@ while True:
         # if saport_spawn_cd.done():
         #     x = random.randint(50, WIDTH - 50 )
         #     saport.add(Saport(x , 600 , 'pikcer/saport.xell.png' , 1 ,TICKRATE * 1))
-
-
-
 
         player_lasers.update()
         enemis_lasers.update()  
