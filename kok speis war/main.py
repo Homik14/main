@@ -353,7 +353,7 @@ while True:
         if e.type == pygame.KEYDOWN:
             if e.key == pygame.K_f and game.state == 'over':
                 game.restart()
-    #обнова
+    #обновления
     if game.state == 'play':
         if enemis_spawn_cd.done():
             x = random.randint(50 , WIDTH - 50)
@@ -375,7 +375,7 @@ while True:
         # elit_enemy.update()
         player.update(keys)
         explosion.update()
-    #отресовка
+    #отрисовка
     window.blit(BG, (0,0))
     game.draw_score()
     player_lasers.draw(window)
@@ -390,6 +390,5 @@ while True:
     explosion.draw(window)
     if game.state == 'over':
         game.draw_restart()
-
     pygame.display.flip()
     clock.tick(TICKRATE)
